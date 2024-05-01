@@ -614,6 +614,22 @@ video {
     max-width: 1632px;
   }
 }
+.badge {
+  display: inline-block;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: Lato, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0;
+  font-weight: 400;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -901,9 +917,6 @@ input[type='checkbox'] {
 }
 .text-\[16px\] {
   font-size: 16px;
-}
-.text-\[22px\] {
-  font-size: 22px;
 }
 .text-\[24px\] {
   font-size: 24px;
