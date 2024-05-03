@@ -14,43 +14,26 @@ export function Menu() {
 
                   <IconBox  link="#" icon="icon-groceries-1" size={30} title="Milks and Dairies" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={7}/>
 
+                  <IconBox  link="#" icon="icon-drinks-1" size={30} title="Wines & Drinks" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={5}/>
 
-                  <Link href="#" className="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer">
-                    <i className="icon-drinks-1 text-[30px]"><span className="path1"></span><span className="path2"></span><span className="path3"></span><span className="path4"></span><span className="path5"></span></i>
-                    <div className="text-heading-sm text-blue-300">Wines & Drinks</div>
-                  </Link>
-                  <Link href={"#"} className="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer">
-                    <i className="icon-dress-1 text-[30px]"><span className="path1"></span><span className="path2"></span><span className="path3"></span><span className="path4"></span></i>
-                    <div className="text-heading-sm text-blue-300">Clothing & beauty</div>
-                  </Link>
-                  <Link href="#" className="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer">
-                    <i className="icon-crab-1 text-[30px]"><span className="path1"></span><span className="path2"></span><span className="path3"></span><span className="path4"></span><span className="path5"></span><span className="path6"></span><span className="path7"></span><span className="path8"></span><span className="path9"></span></i>
-                    <div className="text-heading-sm text-blue-300">Fresh Seafood</div>
-                  </Link>
-                  <Link href="#" className="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer">
-                    <i className="icon-pet-food-1 text-[30px]"><span className="path1"></span><span className="path2"></span><span className="path3"></span><span className="path4"></span><span className="path5"></span><span className="path6"></span><span className="path7"></span><span className="path8"></span></i>
-                    <div className="text-heading-sm text-blue-300">Pet Foods & Toy</div>
-                  </Link>
-                  <Link href="#" className="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer">
-                    <i className="icon-sweet-1 text-[30px]"><span className="path1"></span><span className="path2"></span><span className="path3"></span><span className="path4"></span><span className="path5"></span><span className="path6"></span><span className="path7"></span></i>
-                    <div className="text-heading-sm text-blue-300">Fast food</div>
-                  </Link>
-                  <Link href="#" className="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer">
-                    <i className="icon-dairy-products-1 text-[30px]"><span className="path1"></span><span className="path2"></span><span className="path3"></span><span className="path4"></span><span className="path5"></span></i>
-                    <div className="text-heading-sm text-blue-300">Baking material</div>
-                  </Link>
-                  <Link href="#" className="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer">
-                    <i className="icon-grocery-1 text-[30px]"><span className="path1"></span><span className="path2"></span><span className="path3"></span><span className="path4"></span><span className="path5"></span><span className="path6"></span><span className="path7"></span></i>
-                    <div className="text-heading-sm text-blue-300">Vegetables</div>
-                  </Link>
-                  <Link href="#" className="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer">
-                    <i className="icon-fruit-1 text-[30px]"><span className="path1"></span><span className="path2"></span><span className="path3"></span></i>
-                    <div className="text-heading-sm text-blue-300">Fresh Fruit</div>
-                  </Link>
-                  <Link href="#" className="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer">
-                    <span className="icon-milk-products-1 text-[30px]"><span className="path1"></span><span className="path2"></span><span className="path3"></span><span className="path4"></span><span className="path5"></span></span>
-                    <div className="text-heading-sm text-blue-300">Bread and Juice</div>
-                  </Link>
+                  <IconBox  link="#" icon="icon-dress-1" size={30} title="Clothing & beauty" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={4}/>
+
+
+                  <IconBox  link="#" icon="icon-crab-1" size={30} title="Fresh Seafood" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={9}/>
+
+
+                  <IconBox  link="#" icon="icon-pet-food-1" size={30} title="Pet Foods & Toy" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={8}/>
+
+                  <IconBox  link="#" icon="icon-sweet-1" size={30} title="Fast food" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={7}/>
+
+                  <IconBox  link="#" icon="icon-dairy-products-1" size={30} title="Baking material" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={5}/>
+
+                  <IconBox  link="#" icon="icon-grocery-1" size={30} title="Vegetables" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={7}/>
+
+                  <IconBox  link="#" icon="icon-fruit-1" size={30} title="Fresh Fruit" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={3}/>
+
+                  <IconBox  link="#" icon="icon-milk-products-1" size={30} title="Bread and Juice" titleClassName="text-heading-sm text-blue-300" linkClassName="flex items-center gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300 cursor-pointer" path={5}/>
+                  
                   <div id="more_categories" className="cursor-pointer flex gap-4 items-center justify-center w-full mt-[17px]">
                     <i className="icon-add text-[24px]"></i>
                     <div className="text-heading-sm text-blue-300">More Categories</div>
