@@ -698,6 +698,12 @@ input[type='checkbox'] {
 .mt-\[32px\] {
   margin-top: 32px;
 }
+.ml-1 {
+  margin-left: 0.25rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
 .inline-block {
   display: inline-block;
 }
