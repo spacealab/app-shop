@@ -22,7 +22,7 @@ export function IconBox({icon, size = 22, link, title, hideTitleOnMobile = false
     
     
     return (
-        <Link className={linkClassName} href={link ?? '#'}>
+        <Link className={`flex items-center cursor-pointer ${linkClassName}`} href={link ?? '#'}>
 
             { 
                 badge ?
@@ -39,7 +39,7 @@ export function IconBox({icon, size = 22, link, title, hideTitleOnMobile = false
 
 
 
-            { title && <div className={`${hideTitleOnMobile ? `hidden xl:inline-block` : `inline-block`} ${titleClassName}`}>{title}</div>}
+            { title && <div className={`ml-1 ${hideTitleOnMobile ? `hidden xl:inline-block` : `inline-block`} ${titleClassName}`}>{title}</div>}
         </Link>
     );
 }
