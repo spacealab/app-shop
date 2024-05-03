@@ -5,18 +5,18 @@ interface Props {
     size?: number;
     link?: string;
     title?: string
-    hideTitleOnMobil?: boolean;
+    hideTitleOnMobile?: boolean;
     badge?: number;
     titleClassName?: string;
     linkClassName?: string;
     path?: number;
 }
 
-export function IconBox({icon, size = 22, link, title, hideTitleOnMobil = false, badge = 0, titleClassName = '', linkClassName = '' ,path= 0}: Props) {
+export function IconBox({icon, size = 22, link, title, hideTitleOnMobile = false, badge = 0, titleClassName = '', linkClassName = '' ,path= 0}: Props) {
     
-    let span = []
-    for(let i = 1; i<= path; i++){
-        span.push(<span> className={`path${i}`} </span>)
+    const spans = [];
+    for (let i = 1; i <= path; i++) {
+      spans.push(<span key={i} className={`path${i}`}></span>);
     }
     
     
@@ -29,17 +29,17 @@ export function IconBox({icon, size = 22, link, title, hideTitleOnMobil = false,
 
                     <div className="relative">
                         <span className="absolute -top-[10px] -right-[10px] w-[20px] h-[20px] bg-green-200 rounded-full flex justify-center items-center text-white text-xsmall">{badge}</span>
-                        <i className={ ` ${icon} text-[${size}px]`}>{span}</i>
+                        <i className={`${icon} text-[${size}px]`}>{spans}</i>                    
                     </div>
                 :
 
-                <i className={ ` ${icon} text-[${size}px]`}></i>
+                <i className={ ` ${icon} text-[${size}px]`}>{spans}</i>
 
             }
 
 
 
-            { title && <div className={`${hideTitleOnMobil ? `hidden xl:inline-block` : `inline-block`} ${titleClassName}`}>{title}</div>}
+            { title && <div className={`${hideTitleOnMobile ? `hidden xl:inline-block` : `inline-block`} ${titleClassName}`}>{title}</div>}
         </Link>
     );
 }

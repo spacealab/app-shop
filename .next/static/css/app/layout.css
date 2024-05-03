@@ -692,17 +692,17 @@ input[type='checkbox'] {
 .mb-\[33px\] {
   margin-bottom: 33px;
 }
-.mt-\[17px\] {
-  margin-top: 17px;
-}
-.mt-\[32px\] {
-  margin-top: 32px;
-}
 .ml-1 {
   margin-left: 0.25rem;
 }
 .ml-2 {
   margin-left: 0.5rem;
+}
+.mt-\[17px\] {
+  margin-top: 17px;
+}
+.mt-\[32px\] {
+  margin-top: 32px;
 }
 .inline-block {
   display: inline-block;
