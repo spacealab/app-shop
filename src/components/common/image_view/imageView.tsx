@@ -5,11 +5,11 @@ interface Props {
   alt: string;
   width: number;
   height: number;
-  classname?: string;
+  className?: string;
 }
 
-export function ImageView({ src, alt, width, height, classname}: Props) {
+export function ImageView({ src, alt, width, height, className}: Props) {
   return (
-    <Image className={classname ?? ''} src={src} alt={alt} width={width} height={height}/>
+    <Image className={className ?? ''} src={src} alt={alt} width={width} height={height}/>
   );
 }
