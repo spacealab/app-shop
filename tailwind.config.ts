@@ -21,7 +21,6 @@ const config: Config = {
       //   'hero-img': "url('../../images/hero-img.png')"
       // },
       fontFamily: {
-        quickSand: ['Quicksand', 'sans-serif'],
         lato: ['Lato', 'sans-serif']
       },
       fontSize: {

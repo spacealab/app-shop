@@ -6,8 +6,8 @@
     box-sizing: border-box;
   }
 
-  html {
-    font-family: Quicksand, sans-serif;
+  .font-fallback {
+    font-family: 'Quicksand', 'Lato', sans-serif; /* Using Quicksand as the primary, Lato as secondary, and sans-serif as the final fallback */
   }
 
   body {

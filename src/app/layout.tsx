@@ -1,10 +1,19 @@
 import "@/styles/globals.css";
 import "@/styles/icons.css";
 
-import { Inter } from "next/font/google";
+import { Lato, Quicksand } from 'next/font/google';
+
 import type { Metadata } from "next";
 
-const inter = Inter({ subsets: ["latin"] });
+// Define the Quicksand font
+const quicksand = Quicksand({
+  subsets: ['latin']
+});
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['400']  // Example: '400' for regular and '700' for bold
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${quicksand.className} font-fallback`}>{children}</body>
     </html>
   );
 }
