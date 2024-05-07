@@ -1,11 +1,11 @@
-import {Layout} from "@/components/layouts";
+import {Layout, Section} from "@/components";
 
 export default function Home() {
   return (
     <Layout>
-      <>
-        this is a react app
-      </>
+      <Section  className="mb-[75px]">
+        Hallo!
+      </Section>
     </Layout>
   );
-}
+} 
