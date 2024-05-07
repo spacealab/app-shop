@@ -1,4 +1,4 @@
-import {Layout, Section} from "@/components";
+import {Banner, Layout, Section} from "@/components";
 
 export default function Home() {
 
@@ -8,8 +8,8 @@ export default function Home() {
 
     
       <Layout>
-        <Section  className="mb-[75px]">
-          Hallo!
+        <Section>
+          <Banner />
         </Section>
       </Layout>
     </>
