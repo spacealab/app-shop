@@ -1,4 +1,4 @@
-import {Banner, FeaturedCategories, Layout, Section} from "@/components";
+import {Banner, FeaturedCategories, Layout, MiniProductSlider, Section} from "@/components";
 export default function Home() {
 
   return (
@@ -19,6 +19,11 @@ export default function Home() {
           <h2 className="text-heading3 text-blue-300">Featured Categories</h2>
         </div>
         <FeaturedCategories />
+      </Section>
+
+      <Section>
+        <MiniProductSlider />
+        
       </Section>
       </Layout>
     </>

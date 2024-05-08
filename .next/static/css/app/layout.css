@@ -680,6 +680,9 @@ input[type='checkbox'] {
 .mt-4 {
   margin-top: 1rem;
 }
+.mt-6 {
+  margin-top: 1.5rem;
+}
 .mt-8 {
   margin-top: 2rem;
 }
@@ -698,11 +701,17 @@ input[type='checkbox'] {
 .flex {
   display: flex;
 }
+.inline-flex {
+  display: inline-flex;
+}
 .grid {
   display: grid;
 }
 .hidden {
   display: none;
+}
+.aspect-slider {
+  aspect-ratio: 500 / 300;
 }
 .aspect-square {
   aspect-ratio: 1 / 1;
@@ -758,11 +767,17 @@ input[type='checkbox'] {
 .max-w-\[700px\] {
   max-width: 700px;
 }
+.max-w-max {
+  max-width: max-content;
+}
 .shrink-0 {
   flex-shrink: 0;
 }
 .grow {
   flex-grow: 1;
+}
+.basis-1\/2 {
+  flex-basis: 50%;
 }
 .basis-\[calc\(50\%-8px\)\] {
   flex-basis: calc(50% - 8px);
@@ -838,11 +853,17 @@ input[type='checkbox'] {
 .rounded {
   border-radius: 0.25rem;
 }
+.rounded-\[10px\] {
+  border-radius: 10px;
+}
 .rounded-\[24px\] {
   border-radius: 24px;
 }
 .rounded-\[30px\] {
   border-radius: 30px;
+}
+.rounded-\[3px\] {
+  border-radius: 3px;
 }
 .rounded-\[5px\] {
   border-radius: 5px;
@@ -925,8 +946,14 @@ input[type='checkbox'] {
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
 }
+.bg-\[length\:50\%\] {
+  background-size: 50%;
+}
 .bg-cover {
   background-size: cover;
+}
+.bg-right-bottom {
+  background-position: right bottom;
 }
 .bg-top {
   background-position: top;
@@ -996,6 +1023,9 @@ input[type='checkbox'] {
 .pl-4 {
   padding-left: 1rem;
 }
+.pl-\[15px\] {
+  padding-left: 15px;
+}
 .pl-\[20px\] {
   padding-left: 20px;
 }
@@ -1004,6 +1034,12 @@ input[type='checkbox'] {
 }
 .pl-\[26px\] {
   padding-left: 26px;
+}
+.pr-2 {
+  padding-right: 0.5rem;
+}
+.pr-2\.5 {
+  padding-right: 0.625rem;
 }
 .pt-2 {
   padding-top: 0.5rem;
@@ -1128,6 +1164,10 @@ input[type='checkbox'] {
 .hover\:bg-green-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(129 177 61 / var(--tw-bg-opacity));
+}
+.hover\:bg-yellow-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 192 101 / var(--tw-bg-opacity));
 }
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
@@ -1361,6 +1401,10 @@ input[type='checkbox'] {
 
   .lg\:pl-10 {
     padding-left: 2.5rem;
+  }
+
+  .lg\:pl-12 {
+    padding-left: 3rem;
   }
 
   .lg\:pt-5 {
