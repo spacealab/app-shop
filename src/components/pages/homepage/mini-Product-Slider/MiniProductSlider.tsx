@@ -56,7 +56,6 @@ export function MiniProductSlider({}: Props) {
                 })
             }
             
-          ...
         </Swiper>
       );
 }
