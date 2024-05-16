@@ -1,8 +1,9 @@
 import 'swiper/css/navigation';
 
-import {Banner, BestSellersSlider, FeaturedCategories, IconBox, Layout, MiniProductSlider, Section, SimpleProductSlider} from "@/components";
+import {Banner, BestSellersSlider, DealsOfTheDays, FeaturedCategories, IconBox, Layout, MiniProductSlider, Section, SimpleProductSlider} from "@/components";
 
 import { BestSellers } from "@/mock/BestSellers"; // Make sure the path is correct
+import { DealsOfTheDaysMock } from '@/mock/DealsOfTheDays';
 import Link from 'next/link';
 import { popularProducts } from "@/mock/PopularProducts";
 
@@ -69,6 +70,15 @@ export default function Home() {
           </div>
           <BestSellersSlider sliderData={BestSellers} />
         </div>
+      </Section>
+
+      <Section>
+        <div className="flex justify-between items-center mb-[50px]">
+          <h2 className="text-heading6 md:text-heading5 lg:text-heading4 xl:text-heading3 text-blue-300">Deals Of The Days</h2>
+          <Link className="flex items-center" href="#">All Deals <IconBox icon='icon-angle-small-right' size={24}/></Link>
+        </div>
+
+        <DealsOfTheDays sliderData={DealsOfTheDaysMock}/>
       </Section>
 
       </Layout>
