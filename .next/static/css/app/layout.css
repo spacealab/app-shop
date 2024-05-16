@@ -753,6 +753,15 @@ input[type='checkbox'] {
 .mt-\[38px\] {
   margin-top: 38px;
 }
+.mt-2\.5 {
+  margin-top: 0.625rem;
+}
+.mt-\[15px\] {
+  margin-top: 15px;
+}
+.mt-\[23px\] {
+  margin-top: 23px;
+}
 .inline-block {
   display: inline-block;
 }
@@ -798,6 +807,9 @@ input[type='checkbox'] {
 .h-full {
   height: 100%;
 }
+.h-\[4px\] {
+  height: 4px;
+}
 .max-h-\[50px\] {
   max-height: 50px;
 }
@@ -828,11 +840,17 @@ input[type='checkbox'] {
 .w-max {
   width: max-content;
 }
+.w-3\/4 {
+  width: 75%;
+}
 .max-w-\[220px\] {
   max-width: 220px;
 }
 .max-w-\[346px\] {
   max-width: 346px;
+}
+.max-w-\[370px\] {
+  max-width: 370px;
 }
 .max-w-\[550px\] {
   max-width: 550px;
@@ -930,6 +948,9 @@ input[type='checkbox'] {
   border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
   border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
 }
+.self-stretch {
+  align-self: stretch;
+}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -965,6 +986,9 @@ input[type='checkbox'] {
 }
 .rounded-xl {
   border-radius: 0.75rem;
+}
+.rounded-\[2px\] {
+  border-radius: 2px;
 }
 .rounded-tl-\[10px\] {
   border-top-left-radius: 10px;
@@ -1016,6 +1040,10 @@ input[type='checkbox'] {
   --tw-border-opacity: 1;
   border-right-color: rgb(59 183 126 / var(--tw-border-opacity));
 }
+.bg-\[\#3BB77E\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 183 126 / var(--tw-bg-opacity));
+}
 .bg-\[\#F5F5F5\] {
   --tw-bg-opacity: 1;
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
@@ -1054,14 +1082,28 @@ input[type='checkbox'] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(246 192 101 / var(--tw-bg-opacity));
+}
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
+}
 .bg-opacity-20 {
   --tw-bg-opacity: 0.2;
+}
+.bg-\[url\(\'\/assets\/images\/bg-leaf\.png\'\)\] {
+  background-image: url('/assets/images/bg-leaf.png');
 }
 .bg-\[length\:50\%\] {
   background-size: 50%;
 }
 .bg-cover {
   background-size: cover;
+}
+.bg-bottom {
+  background-position: bottom;
 }
 .bg-right-bottom {
   background-position: right bottom;
@@ -1071,6 +1113,9 @@ input[type='checkbox'] {
 }
 .bg-no-repeat {
   background-repeat: no-repeat;
+}
+.p-12 {
+  padding: 3rem;
 }
 .p-2 {
   padding: 0.5rem;
@@ -1187,6 +1232,9 @@ input[type='checkbox'] {
 .pt-\[20px\] {
   padding-top: 20px;
 }
+.pt-\[38px\] {
+  padding-top: 38px;
+}
 .text-center {
   text-align: center;
 }
@@ -1202,6 +1250,12 @@ input[type='checkbox'] {
 .text-heading-sm {
   font-size: 14px;
   line-height: 16px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+.text-heading2 {
+  font-size: 40px;
+  line-height: 48px;
   letter-spacing: 0;
   font-weight: 700;
 }
@@ -1247,11 +1301,11 @@ input[type='checkbox'] {
   letter-spacing: 0;
   font-weight: 400;
 }
+.text-\[22px\] {
+  font-size: 22px;
+}
 .font-bold {
   font-weight: 700;
-}
-.lowercase {
-  text-transform: lowercase;
 }
 .leading-5 {
   line-height: 1.25rem;
@@ -1289,6 +1343,11 @@ input[type='checkbox'] {
 }
 .line-through {
   text-decoration-line: line-through;
+}
+.shadow-\[20px_20px_40px_0_rgba\(24\2c 24\2c 24\2c 0\.07\)\] {
+  --tw-shadow: 20px 20px 40px 0 rgba(24,24,24,0.07);
+  --tw-shadow-colored: 20px 20px 40px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .transition-all {
   transition-property: all;
@@ -1576,6 +1635,11 @@ input[type='checkbox'] {
     padding-bottom: 13px;
   }
 
+  .lg\:py-\[14px\] {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
   .lg\:pl-10 {
     padding-left: 2.5rem;
   }
@@ -1635,6 +1699,10 @@ input[type='checkbox'] {
     display: inline-block;
   }
 
+  .xl\:flex {
+    display: flex;
+  }
+
   .xl\:justify-start {
     justify-content: flex-start;
   }
@@ -1677,6 +1745,13 @@ input[type='checkbox'] {
     font-weight: 700;
   }
 
+  .xl\:text-heading3 {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
   .xl\:text-heading4 {
     font-size: 24px;
     line-height: 32px;
@@ -1687,6 +1762,13 @@ input[type='checkbox'] {
   .xl\:text-heading5 {
     font-size: 20px;
     line-height: 24px;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+
+  .xl\:text-heading-sm {
+    font-size: 14px;
+    line-height: 16px;
     letter-spacing: 0;
     font-weight: 700;
   }
