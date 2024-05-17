@@ -3,12 +3,12 @@ export const popularProducts = [
         title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
         image: '/assets/images/products/mango.png',
         category: "Hodo Foods",
-        rate: 4.0,
+        rate: 3.0,
         weight: 500,
         unit: 'gram',
         price: 5000,
         sale_price: 200,
-        label: 'Hot',
+        label: 'sale',
 
     },
     {

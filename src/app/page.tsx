@@ -1,6 +1,6 @@
 import 'swiper/css/navigation';
 
-import {Banner, BestSellersSlider, DealsOfTheDays, FeaturedCategories, IconBox, Layout, MiniProductSlider, Section, SimpleProductSlider} from "@/components";
+import {Banner, BestSellersSlider, BottomSlider, DealsOfTheDays, FeaturedCategories, IconBox, Layout, MiniProductSlider, Section, SimpleProductSlider} from "@/components";
 
 import { BestSellers } from "@/mock/BestSellers"; // Make sure the path is correct
 import { DealsOfTheDaysMock } from '@/mock/DealsOfTheDays';
@@ -35,7 +35,7 @@ export default function Home() {
       </Section>
 
       <Section>
-      <div className="flex justify-between mb-[50px]">
+        <div className="flex justify-between mb-[50px]">
           <h2 className="text-heading3 text-blue-300">Popular Products</h2>
           <div className="flex items-center gap-3">
             <IconBox icon='swiper-nav-left icon-angle-small-left cursor-pointer bg-gray-100 p-2 rounded-full text-gray-500 hover:bg-green-200 hover:text-white' size={24}/>
@@ -79,6 +79,10 @@ export default function Home() {
         </div>
 
         <DealsOfTheDays sliderData={DealsOfTheDaysMock}/>
+      </Section>
+
+      <Section>
+          <BottomSlider />
       </Section>
 
       </Layout>
