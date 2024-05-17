@@ -7,7 +7,7 @@ export const DealsOfTheDaysMock = [
         unit: 'gram',
         price: 22222,
         sale_price: 111,
-        dead_line: '2024-02-20 12:10:02'
+        dead_line: '2024-05-18 12:10:02'
     },
     {
         title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
@@ -17,7 +17,7 @@ export const DealsOfTheDaysMock = [
         unit: 'gram',
         price: 3000,
         sale_price: 70,
-        dead_line: '2024-02-19 12:02:18'
+        dead_line: '2024-05-18 12:10:02'
     },
     {
         title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
@@ -26,7 +26,7 @@ export const DealsOfTheDaysMock = [
         weight: 500,
         unit: 'gram',
         price: 1000,
-        dead_line: '2024-02-18 23:10:33'
+        dead_line: '2024-05-18 12:10:02'
     },
     {
         title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
@@ -35,6 +35,6 @@ export const DealsOfTheDaysMock = [
         weight: 500,
         unit: 'gram',
         price: 2000,
-        dead_line: '2024-02-10 10:10:54'
+        dead_line: '2024-05-18 12:10:02'
     }
 ]

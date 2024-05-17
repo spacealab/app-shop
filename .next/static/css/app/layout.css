@@ -711,11 +711,17 @@ input[type='checkbox'] {
   margin-left: auto;
   margin-right: auto;
 }
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 .mb-\[28px\] {
   margin-bottom: 28px;
+}
+.mb-\[30px\] {
+  margin-bottom: 30px;
 }
 .mb-\[33px\] {
   margin-bottom: 33px;
@@ -770,12 +776,6 @@ input[type='checkbox'] {
 }
 .mt-\[38px\] {
   margin-top: 38px;
-}
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
-.mb-\[30px\] {
-  margin-bottom: 30px;
 }
 .inline-block {
   display: inline-block;
