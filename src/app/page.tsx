@@ -1,3 +1,5 @@
+'use client';
+
 import 'swiper/css/navigation';
 import 'react-toastify/dist/ReactToastify.css';
 

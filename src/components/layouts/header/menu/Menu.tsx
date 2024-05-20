@@ -1,10 +1,20 @@
 import { IconBox } from "@/components/common";
 import Link from "next/link";
 import {browsCategoriesMock} from '@/mock/browsCategory';
+import { getMenuApiCall } from '@/api/Menu';
 import {menuMock} from '@/mock/menu';
+import { useQuery } from '@tanstack/react-query'; // Import useQuery
 
 export function Menu() {
   // TODO LOAD MENU DATA FROM API
+
+    const { data: menuData } = useQuery({
+      queryKey: [getMenuApiCall.name],
+      queryFn: () => getMenuApiCall()
+    });
+
+    console.log('menuData', menuData)
+
     return (
         <>
             <div id="all_categories" className="flex relative cursor-pointer bg-green-200 gap-2.5 text-white px-4 py-3 rounded-[5px] items-center">
