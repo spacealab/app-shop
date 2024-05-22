@@ -24,6 +24,16 @@ export function Menu() {
 
       if(findMenu.length > 0) {
         mainMenuItems = findMenu[0].attributes.menu_items;
+
+        mainMenuItems.data.sort((a: EntityType<MenuItemType> , b: EntityType<MenuItemType>) => {
+          if (a.attributes.rank < b.attributes.rank)
+            return -1;
+
+          if (a.attributes.rank > b.attributes.rank)
+            return 1;
+
+          return 0;
+        });
       }
     }
 
