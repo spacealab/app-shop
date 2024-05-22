@@ -1,42 +1,13 @@
-import { EntityType, MenuItemType, MenuType, PopulateType } from "@/types";
+import { EntityType, MenuItemType } from "@/types";
 
 import { IconBox } from "@/components/common";
 import Link from "next/link";
-import {browsCategoriesMock} from '@/mock/browsCategory';
-import { getMenuApiCall } from '@/api/Menu';
-import { useQuery } from '@tanstack/react-query'; // Import useQuery
+import { useMenu } from "@/hooks/use-menu";
 
 export function Menu() {
-  // TODO LOAD MENU DATA FROM API
 
-    const { data: menuData } = useQuery({
-      queryKey: [getMenuApiCall.name],
-      queryFn: () => getMenuApiCall()
-    });
-
-    console.log('menuData', menuData)
-
-    let mainMenuItems: null | PopulateType<MenuItemType> = null;
-
-
-    if(menuData) {
-      const findMenu = menuData.data.filter((item: EntityType<MenuType>) => item.attributes.position === 'main_menu');
-
-      if(findMenu.length > 0) {
-        mainMenuItems = findMenu[0].attributes.menu_items;
-
-        mainMenuItems.data.sort((a: EntityType<MenuItemType> , b: EntityType<MenuItemType>) => {
-          if (a.attributes.rank < b.attributes.rank)
-            return -1;
-
-          if (a.attributes.rank > b.attributes.rank)
-            return 1;
-
-          return 0;
-        });
-      }
-    }
-
+  const {data: mainMenuItems} = useMenu({position: 'main_menu'})
+    const {data: categoryMenuItems} = useMenu({position: 'brows-category'})
 
     return (
         <>
@@ -45,14 +16,23 @@ export function Menu() {
 
                 <IconBox icon="icon-angle-small-down" size={24}/>
 
-              <div id="all_categories_box" className="hidden absolute z-20 bg-white left-0 top-16 w-[500px] rounded-[5px] border-[1px] border-green-300 p-[30px] hover:cursor-default">
+              <div id="all_categories_box" className=" absolute z-20 bg-white left-0 top-16 w-[500px] rounded-[5px] border-[1px] border-green-300 p-[30px] hover:cursor-default">
                 <div id="all_cat_inner_box" className="flex flex-wrap justify-between gap-y-[15px]">
 
                   {
+                    categoryMenuItems &&
+                    categoryMenuItems.data.map((item: EntityType<MenuItemType>, index: number) => {
+                      return  <IconBox key={index} link={item.attributes.link} icon={item.attributes.icon_name} size={30} title={item.attributes.title} titleClassName="text-heading-sm text-blue-300" linkClassName="gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300" path={item.attributes.icon_path}/>
 
-                    browsCategoriesMock.map((item, index) => {
-                      return  <IconBox key={index} link={item.link} icon={item.icon} size={30} title={item.title} titleClassName="text-heading-sm text-blue-300" linkClassName="gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300" path={item.iconPath}/>
                     })
+
+                  }
+
+                  {
+
+                    // browsCategoriesMock.map((item, index) => {
+                    //   return  <IconBox key={index} link={item.link} icon={item.icon} size={30} title={item.title} titleClassName="text-heading-sm text-blue-300" linkClassName="gap-3.5 rounded-[5px] lg:border-[1px] lg:border-gray-300 py-2.5 basis-[calc(50%-8px)] justify-start pl-4 lg:hover:border-green-300" path={item.iconPath}/>
+                    // })
 
                   }
 
@@ -82,20 +62,6 @@ export function Menu() {
                     )
                   })
                 }
-
-                {/* {
-                  menuMock.map((item, index) => {
-                    return (
-                      <li>
-                        {
-                          item.icon? 
-                            <IconBox {...item} size={24}/> 
-                            : <Link href={item.link} className="flex items-center gap-1">{item.title}</Link> 
-                        }
-                      </li>
-                    )
-                  })
-                } */}
 
               </ul>
             </nav>
