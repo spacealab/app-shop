@@ -1,8 +1,9 @@
+import { EntityType, MenuItemType, MenuType, PopulateType } from "@/types";
+
 import { IconBox } from "@/components/common";
 import Link from "next/link";
 import {browsCategoriesMock} from '@/mock/browsCategory';
 import { getMenuApiCall } from '@/api/Menu';
-import {menuMock} from '@/mock/menu';
 import { useQuery } from '@tanstack/react-query'; // Import useQuery
 
 export function Menu() {
@@ -14,6 +15,18 @@ export function Menu() {
     });
 
     console.log('menuData', menuData)
+
+    let mainMenuItems: null | PopulateType<MenuItemType> = null;
+
+
+    if(menuData) {
+      const findMenu = menuData.data.filter((item: EntityType<MenuType>) => item.attributes.position === 'main_menu');
+
+      if(findMenu.length > 0) {
+        mainMenuItems = findMenu[0].attributes.menu_items;
+      }
+    }
+
 
     return (
         <>
@@ -46,6 +59,21 @@ export function Menu() {
               <ul className="flex flex-col lg:flex-row items-start lg:items-center text-heading6 lg:text-heading-sm 2xl:text-heading6 gap-[32px] mt-[32px] lg:mt-0 lg:gap-3 xl:gap-5 2xl:gap-10">
                 
                 {
+                  mainMenuItems &&
+                  mainMenuItems.data.map((item: EntityType<MenuItemType>, index: number) => {
+                    return(
+                      <li key={index}>
+                      {
+                        item.attributes.icon_name? 
+                          <IconBox link={item.attributes.link} icon={item.attributes.icon_name} title={item.attributes.title} size={24}/> 
+                          : <Link href={item.attributes.link} className="flex items-center gap-1">{item.attributes.title}</Link> 
+                      }
+                    </li>
+                    )
+                  })
+                }
+
+                {/* {
                   menuMock.map((item, index) => {
                     return (
                       <li>
@@ -57,7 +85,8 @@ export function Menu() {
                       </li>
                     )
                   })
-                }
+                } */}
+
               </ul>
             </nav>
         </>
