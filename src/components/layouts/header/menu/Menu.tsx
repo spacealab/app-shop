@@ -1,5 +1,5 @@
 import { EntityType, MenuItemType } from "@/types";
-import { useEffect, useState } from "react";
+import react, { useEffect, useState } from "react";
 
 import { IconBox } from "@/components/common";
 import Link from "next/link";
@@ -12,11 +12,11 @@ export function Menu() {
   const {data: mainMenuItems} = useMenu({position: 'main_menu'})
     const {data: categoryMenuItems} = useMenu({position: 'brows-category'})
 
-    const categoryBodyClickHandler = (e) => {
+    const categoryBodyClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
     }
 
-    const categoryBtnMenuClickHandler = (e) => {
+    const categoryBtnMenuClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
       setShowCategoryMenu((prevState) => !prevState );
     }
@@ -24,7 +24,7 @@ export function Menu() {
     useEffect(() => {
       const clickHandler = () =>{
         setShowCategoryMenu(false);
-      }
+      };
 
       document.addEventListener('click', clickHandler)
 
