@@ -34,10 +34,19 @@ export default function Home() {
 
   // })
 
-  function InnerComponent() {
+  function InnerComponentPopulate() {
     const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
-      queryKey: [getAllProductsApiCall.name],
+      queryKey: [getAllProductsApiCall.name, 'popular_product'],
       queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_popular: true } })
+    });
+  
+
+  }
+
+  function InnerComponentFruit() {
+    const { data: popularFruitProductsData } = useQuery<ApiResponseType<ProductType>>({
+      queryKey: [getAllProductsApiCall.name, 'popular_fruit'],
+      queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_papular_fruit: true } })
     });
   
 
@@ -82,18 +91,18 @@ export default function Home() {
             { popularProductsData && <SimpleProductSlider nextEl={'.swiper-nav-right'} prevEl={'.swiper-nav-left'} sliderData={popularProductsData.data}/> }
           </Section>
 
-          {/* <Section>
-          <div className="flex justify-between mb-[50px]">
+          <Section>
+            <div className="flex justify-between mb-[50px]">
               <h2 className="text-heading3 text-blue-300">Popular Fruits</h2>
               <div className="flex items-center gap-3">
                 <IconBox icon='swiper-nav-left2 icon-angle-small-left cursor-pointer bg-gray-100 p-2 rounded-full text-gray-500 hover:bg-green-200 hover:text-white' size={24}/>
                 <IconBox icon='swiper-nav-right2 icon-angle-small-right cursor-pointer bg-gray-100 p-2 rounded-full text-gray-500 hover:bg-green-200 hover:text-white' size={24}/>
               </div>
             </div>
-            <SimpleProductSlider nextEl={'.swiper-nav-right2'} prevEl={'.swiper-nav-left2'} sliderData={popularProducts}/>
+            { popularFruitProductsData.data && <SimpleProductSlider nextEl={'.swiper-nav-right2'} prevEl={'.swiper-nav-left2'} sliderData={popularFruitProductsData.data}/>}
           </Section>
 
-          <Section>
+          {/* <Section>
                     <div className="flex justify-between mb-[50px]">
               <h2 className="text-heading6 md:text-heading5 lg:text-heading4 xl:text-heading3 text-blue-300">Best Sellers</h2>
             </div>
