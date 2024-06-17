@@ -6,40 +6,49 @@ import 'react-toastify/dist/ReactToastify.css';
 import {Banner, BestSellersSlider, BottomSlider, DealsOfTheDays, FeaturedCategories, IconBox, Layout, MiniProductSlider, Section, SimpleProductSlider} from "@/components";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import { ApiResponseType } from '@/types';
 import { BestSellers } from "@/mock/BestSellers"; // Make sure the path is correct
 import { DealsOfTheDaysMock } from '@/mock/DealsOfTheDays';
 import Link from 'next/link';
+import { ProductType } from '@/types/api/Product';
 import { ToastContainer } from 'react-toastify';
 import { getAllProductsApiCall } from '@/api/Product';
 import { popularProducts } from "@/mock/PopularProducts";
 import { useQuery } from '@tanstack/react-query';
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchIntervalInBackground: false,
+      retry: 0,
+    },
+  },
+});
+
 export default function Home() {
 
-  const {data : popularProductsData} = useQuery({
-    queryKey: [getAllProductsApiCall.name],
-    queryFn: () => getAllProductsApiCall({populate: ["categories", "thumbnail"], filters: {is_popular: true}})
+  // const {data : popularProductsData} = useQuery({
+  //   queryKey: [getAllProductsApiCall.name],
+  //   queryFn: () => getAllProductsApiCall({populate: ["categories", "thumbnail"], filters: {is_popular: true}})
 
-  })
+  // })
 
-  console.log('popularProducts', popularProductsData);
+  function InnerComponent() {
+    const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
+      queryKey: [getAllProductsApiCall.name],
+      queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_popular: true } })
+    });
   
 
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-        refetchIntervalInBackground: false,
-        retry: 0,
-      },
-    },
-  });
+  }
   
   return (
 
     <>
 
       <QueryClientProvider client={queryClient} >
+
     
         <Layout>
           
@@ -70,10 +79,10 @@ export default function Home() {
                 <IconBox icon='swiper-nav-right icon-angle-small-right cursor-pointer bg-gray-100 p-2 rounded-full text-gray-500 hover:bg-green-200 hover:text-white' size={24}/>
               </div>
             </div>
-            <SimpleProductSlider nextEl={'.swiper-nav-right'} prevEl={'.swiper-nav-left'} sliderData={popularProducts}/>
+            { popularProductsData && <SimpleProductSlider nextEl={'.swiper-nav-right'} prevEl={'.swiper-nav-left'} sliderData={popularProductsData.data}/> }
           </Section>
 
-          <Section>
+          {/* <Section>
           <div className="flex justify-between mb-[50px]">
               <h2 className="text-heading3 text-blue-300">Popular Fruits</h2>
               <div className="flex items-center gap-3">
@@ -107,7 +116,7 @@ export default function Home() {
             </div>
 
             <DealsOfTheDays sliderData={DealsOfTheDaysMock}/>
-          </Section>
+          </Section> */}
 
           <Section>
               <BottomSlider />

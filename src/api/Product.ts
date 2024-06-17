@@ -1,3 +1,5 @@
+import { ApiResponseType } from "@/types";
+import { ProductType } from "@/types/api/Product";
 import apiClient from "./config/ApiClient";
 
 interface Props {
@@ -11,7 +13,7 @@ interface Filters {
   is_popular?: { $eq: boolean };
 }
 
-export function getAllProductsApiCall({populate, filters}: Props) {
+export function getAllProductsApiCall({populate, filters}: Props) : Promise<ApiResponseType<ProductType>> {
   const customFilter: Filters = {};
 
   if (filters?.is_popular) {
