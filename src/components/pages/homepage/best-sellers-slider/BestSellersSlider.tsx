@@ -3,10 +3,12 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Autoplay } from 'swiper/modules';
+import { EntityType } from '@/types';
+import { ProductType } from '@/types/api/Product';
 import { SimpleProductCard } from "@/components/common";
 
 interface Props {
-    sliderData: Array<any>
+    sliderData: Array<EntityType<ProductType>>
 }
 
 export function BestSellersSlider({sliderData}: Props) {

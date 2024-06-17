@@ -48,6 +48,14 @@ export default function Home() {
       queryKey: [getAllProductsApiCall.name, 'popular_fruit'],
       queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_papular_fruit: true } })
     });
+
+  }
+
+  function InnerComponentSeller() {
+    const { data: bestSellerProductsData } = useQuery<ApiResponseType<ProductType>>({
+      queryKey: [getAllProductsApiCall.name, 'best_seller'],
+      queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_best_seller: true } })
+    });
   
 
   }
@@ -102,7 +110,7 @@ export default function Home() {
             { popularFruitProductsData.data && <SimpleProductSlider nextEl={'.swiper-nav-right2'} prevEl={'.swiper-nav-left2'} sliderData={popularFruitProductsData.data}/>}
           </Section>
 
-          {/* <Section>
+          <Section>
                     <div className="flex justify-between mb-[50px]">
               <h2 className="text-heading6 md:text-heading5 lg:text-heading4 xl:text-heading3 text-blue-300">Best Sellers</h2>
             </div>
@@ -114,11 +122,11 @@ export default function Home() {
                   <i className="icon-arrow-small-right text-[24px]"></i>
                 </Link>
               </div>
-              <BestSellersSlider sliderData={BestSellers} />
+              { bestSellerProductsData.data && <div className='flex-grow'><BestSellersSlider sliderData={bestSellerProductsData.data} /></div> }
             </div>
           </Section>
 
-          <Section>
+          {/* <Section>
             <div className="flex justify-between items-center mb-[50px]">
               <h2 className="text-heading6 md:text-heading5 lg:text-heading4 xl:text-heading3 text-blue-300">Deals Of The Days</h2>
               <Link className="flex items-center" href="#">All Deals <IconBox icon='icon-angle-small-right' size={24}/></Link>
