@@ -44,6 +44,8 @@ export default function Home() {
     queryKey: [getAllProductsApiCall.name, 'deal_of_day'],
     queryFn: () => getAllProductsApiCall({populate: ['categories', 'thumbnail'], filters: {discount_expire_date: {$notNull: true}}})
   })
+
+  
   
   
   return (
