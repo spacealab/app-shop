@@ -7,13 +7,10 @@ import {Banner, BestSellersSlider, BottomSlider, DealsOfTheDays, FeaturedCategor
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { ApiResponseType } from '@/types';
-import { BestSellers } from "@/mock/BestSellers"; // Make sure the path is correct
-import { DealsOfTheDaysMock } from '@/mock/DealsOfTheDays';
 import Link from 'next/link';
 import { ProductType } from '@/types/api/Product';
 import { ToastContainer } from 'react-toastify';
 import { getAllProductsApiCall } from '@/api/Product';
-import { popularProducts } from "@/mock/PopularProducts";
 import { useQuery } from '@tanstack/react-query';
 
 const queryClient = new QueryClient({
@@ -28,37 +25,26 @@ const queryClient = new QueryClient({
 
 export default function Home() {
 
-  // const {data : popularProductsData} = useQuery({
-  //   queryKey: [getAllProductsApiCall.name],
-  //   queryFn: () => getAllProductsApiCall({populate: ["categories", "thumbnail"], filters: {is_popular: true}})
-
-  // })
-
-  function InnerComponentPopulate() {
-    const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
-      queryKey: [getAllProductsApiCall.name, 'popular_product'],
-      queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_popular: true } })
-    });
+  const {data : popularProductsData} = useQuery<ApiResponseType<ProductType>>({
+    queryKey: [getAllProductsApiCall.name, 'popular_product'],
+    queryFn: () => getAllProductsApiCall({populate: ['categories', 'thumbnail'], filters: {is_popular: {$eq: true}}})
+  })
   
-
-  }
-
-  function InnerComponentFruit() {
-    const { data: popularFruitProductsData } = useQuery<ApiResponseType<ProductType>>({
-      queryKey: [getAllProductsApiCall.name, 'popular_fruit'],
-      queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_papular_fruit: true } })
-    });
-
-  }
-
-  function InnerComponentSeller() {
-    const { data: bestSellerProductsData } = useQuery<ApiResponseType<ProductType>>({
-      queryKey: [getAllProductsApiCall.name, 'best_seller'],
-      queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_best_seller: true } })
-    });
+  const {data : popularFruitProductsData} = useQuery<ApiResponseType<ProductType>>({
+    queryKey: [getAllProductsApiCall.name, 'popular_fruit'],
+    queryFn: () => getAllProductsApiCall({populate: ['categories', 'thumbnail'], filters: {is_popular_fruit: {$eq: true}}})
+  })
   
+  const {data : bestSellerProductsData} = useQuery<ApiResponseType<ProductType>>({
+    queryKey: [getAllProductsApiCall.name, 'best_seller'],
+    queryFn: () => getAllProductsApiCall({populate: ['categories', 'thumbnail'], filters: {is_best_seller: {$eq: true}}})
+  })
 
-  }
+  const {data : dealsOfDayData} = useQuery<ApiResponseType<ProductType>>({
+    queryKey: [getAllProductsApiCall.name, 'deal_of_day'],
+    queryFn: () => getAllProductsApiCall({populate: ['categories', 'thumbnail'], filters: {discount_expire_date: {$notNull: true}}})
+  })
+  
   
   return (
 
@@ -126,14 +112,14 @@ export default function Home() {
             </div>
           </Section>
 
-          {/* <Section>
+          <Section>
             <div className="flex justify-between items-center mb-[50px]">
               <h2 className="text-heading6 md:text-heading5 lg:text-heading4 xl:text-heading3 text-blue-300">Deals Of The Days</h2>
               <Link className="flex items-center" href="#">All Deals <IconBox icon='icon-angle-small-right' size={24}/></Link>
             </div>
 
-            <DealsOfTheDays sliderData={DealsOfTheDaysMock}/>
-          </Section> */}
+            { dealsOfDayData && <DealsOfTheDays sliderData={dealsOfDayData.data}/>}
+          </Section>
 
           <Section>
               <BottomSlider />
