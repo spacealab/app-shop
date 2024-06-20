@@ -1,7 +1,8 @@
-import { IconBox, Logo, Menu, SearchForm } from "@/components";
+import { IconBox, Logo, Menu, Modal, SearchForm } from "@/components";
 import React, { useEffect, useState } from "react";
 
 import Link from 'next/link';
+import { LoginModal } from "@/components/common/auth/LoginModal";
 
 export function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
@@ -31,6 +32,7 @@ export function Header() {
 
   return (
     <header className="mb-[33px]">
+      
       <div className="container flex items-center justify-between py-4 md:py-6 xl:py-8">
         <Logo />
 
