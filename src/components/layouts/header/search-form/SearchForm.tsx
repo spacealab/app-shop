@@ -5,6 +5,7 @@ import { EntityType } from "@/types";
 import { IconBox } from "@/components/common";
 import { ProductType } from "@/types/api/Product";
 import { getAllProductsApiCall } from "@/api/Product";
+import useDebounce from "@/hooks/use-debounce";
 import {useForm} from "react-hook-form";
 
 interface Props {
@@ -34,14 +35,19 @@ export function SearchForm({inputClassName = ''} : Props) {
 
     const search_text = watch('search_text');
 
+
     useEffect(() => {
-        if(search_text && search_text.length > 1 ) {
-            handleSubmit(onSubmit)()
+        if(search_text) {
+           delay();
+        } else {
+            setResultData([])
         }
     }, [search_text])
       
     const onSubmit = (data : FormInput) => {
 
+        if(data.search_text.length <= 1 )
+            return
         mutation.mutate({
             title: {
               '$containsi': data.search_text
@@ -53,6 +59,8 @@ export function SearchForm({inputClassName = ''} : Props) {
           })     
         
     }
+
+    const delay = useDebounce(handleSubmit(onSubmit), 1000)
 
     return (
         <div className="relative">
