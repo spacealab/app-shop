@@ -1,14 +1,13 @@
 import { Modal } from "@/components";
-import { createPortal } from "react-dom";
 
 interface Props {
+    onClose: () => void
 }
 
-export function LoginModal({}: Props) {
-    return createPortal (
-        <Modal title="Login" closeModal={() => {}}>
+export function LoginModal({onClose}: Props) {
+    return (
+        <Modal title="Login" closeModal={onClose}>
             <form></form>
-        </Modal>,
-        document.getElementById("portal")!
+        </Modal>
     );
-}
+};

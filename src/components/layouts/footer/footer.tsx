@@ -9,10 +9,14 @@ export function Footer() {
     
     const [showModal, setShowModal] = useState(false)
 
+    const onCloseHandler = () => {
+      setShowModal(false);
+    }
+
     return (
         <footer className="container mb-[68px] relative">
 
-        { showModal && <LoginModal />}
+        { showModal && <LoginModal onClose={() => setShowModal(false)}/>}
 
 
         <div onClick={() => setShowModal(true)} className="mb-[68px]">
