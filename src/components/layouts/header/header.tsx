@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import Link from 'next/link';
 import { LoginModal } from "@/components/common/auth/LoginModal";
+import { RegisterModal } from "@/components/common/auth/RegisterModal";
 
 export function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
@@ -30,8 +31,18 @@ export function Header() {
     };
   }, []);
 
+  const [showModal, setShowModal] = useState<"login" | "register" | null>(null);
+
+  const onCloseHandler = () => {
+    setShowModal(null);
+  }
+
   return (
     <header className="mb-[33px]">
+
+      { showModal === 'login' && <LoginModal onClose={() => {onCloseHandler}} setShowModal={setShowModal}/>}
+
+      { showModal === 'register' && <RegisterModal onClose={() => {onCloseHandler}}/>}
       
       <div className="container flex items-center justify-between py-4 md:py-6 xl:py-8">
         <Logo />
@@ -41,7 +52,7 @@ export function Header() {
         </div>
 
         <ul className="hidden lg:flex gap-5">
-          <li className="flex gap-2 cursor-pointer">
+          <li className="flex gap-2 cursor-pointer" onClick={() => setShowModal('login')}>
             <IconBox icon="icon-user" size={24} title={"Account"} link="#" hideTitleOnMobile={true} titleClassName="text-medium text-gray-500 font-lato" />
           </li>
           <li className="flex gap-2 cursor-pointer">
