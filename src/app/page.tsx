@@ -58,6 +58,7 @@ export default function Home() {
       <QueryClientProvider client={queryClient} >
         <HydrationBoundary state={pageProps.dehydratedState}>
 
+          <div id='portal'></div>
     
           <Layout>
             
