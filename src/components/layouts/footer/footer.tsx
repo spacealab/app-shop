@@ -1,9 +1,6 @@
 import { IconBox, ImageView, Logo } from "@/components/common";
 
 import Link from "next/link";
-import { LoginModal } from "@/components/common/auth/LoginModal";
-import { RegisterModal } from "@/components/common/auth/RegisterModal";
-import { useState } from "react";
 
 export function Footer() {
     // FIX MOBILE MENU
