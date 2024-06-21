@@ -1,4 +1,6 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext, useEffect, useState } from "react";
+
+import { Hash } from "crypto";
 
 interface Props {
     children: ReactNode
@@ -24,6 +26,14 @@ export const useModal = () => useContext(ModalContext)
 export function ModalContextProvider({ children }: Props) {
 
     const [showModal, setShowModal] = useState<"login" | "register" | null>(null);
+
+    useEffect(() => {
+        const hash =  window.location.hash.substring(1); 
+        if(hash.includes('-modal')) {
+           const modalName = hash.split('-')[0] as ModalType;
+           setShowModal(modalName);
+        }
+    }, []);
 
     const openModal = (modalName: ModalType) => {
         setShowModal(modalName)
