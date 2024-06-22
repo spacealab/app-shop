@@ -1,3 +1,4 @@
+import { Input } from "../ui/form/input";
 import { Modal } from "@/components";
 import { useForm } from "react-hook-form";
 
@@ -20,20 +21,13 @@ export function RegisterModal({ onClose }: Props) {
     return (
         <Modal title="register" closeModal={onClose}>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div>
-                    <label htmlFor="username">username:</label>
-                    <input id="username" type="text" placeholder="enter your username" {...register('username', { required: true })} />
-                </div>
 
-                <div>
-                    <label htmlFor="email">email:</label>
-                    <input id="email" type="email" {...register('email', { required: "enter your email please" })} />
-                </div>
+                <Input register={register('username', { required: true })} label="username" placeholder={"enter your username"}/>
 
-                <div>
-                    <label htmlFor="passwords">passwords:</label>
-                    <input id="passwords" type="passwords" {...register('passwords', { required: "enter your passwords please", minLength:{value: 3, message: " min 3 character"} })}/>
-                </div>
+                <Input register={register('email', { required: "enter your email please"  })} label="email" placeholder={"enter your email please"} type="email"/>
+
+                <Input register={register('passwords', { required: "enter your passwords please", minLength:{value: 3, message: " min 3 character"} })} label="passwords" placeholder={"enter your passwords please"} type="passwords"/>
+
             </form>
 
             <button className="mt-2 bg-[#efefef]">submit</button>
