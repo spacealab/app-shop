@@ -5,8 +5,12 @@ import React, { useContext, useEffect, useState } from "react";
 import Link from 'next/link';
 import { LoginModal } from "@/components/common/auth/LoginModal";
 import { RegisterModal } from "@/components/common/auth/RegisterModal";
+import { useUser } from "@/store/AuthContext";
 
 export function Header() {
+
+  const {isLogin} = useUser();
+
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
   const {currentModal, openModal, closeModal} = useModal()
@@ -50,7 +54,7 @@ export function Header() {
 
         <ul className="hidden lg:flex gap-5">
           <li className="flex gap-2 cursor-pointer" onClick={() => openModal('login')}>
-            <IconBox icon="icon-user" size={24} title={"Account"} link="#" hideTitleOnMobile={true} titleClassName="text-medium text-gray-500 font-lato" />
+            <IconBox icon="icon-user" size={24} title={`${isLogin ? 'logout' : 'login/register'}`} link="#" hideTitleOnMobile={true} titleClassName="text-medium text-gray-500 font-lato" />
           </li>
           <li className="flex gap-2 cursor-pointer">
             <IconBox icon="icon-shopping-cart" size={24} title={"Card"} link="#" hideTitleOnMobile={true} badge={4} titleClassName="text-medium text-gray-500 font-lato" />
