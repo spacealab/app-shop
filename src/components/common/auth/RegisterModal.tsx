@@ -22,11 +22,11 @@ export function RegisterModal({ onClose }: Props) {
         <Modal title="register" closeModal={onClose}>
             <form onSubmit={handleSubmit(onSubmit)}>
 
-                <Input register={register('username', { required: "enter your name please" })} errors={errors} label="username" placeholder={"enter your username"}/>
+                <Input register={register('username', { required: "enter your name please" })} errors={errors} label="username" {...{placeholder:"enter your username"}}/>
 
-                <Input register={register('email', { required: "enter your email please"  })} errors={errors} label="email" placeholder={"enter your email please"} type="email"/>
+                <Input register={register('email', { required: "enter your email please"  })} errors={errors} label="email" {...{placeholder:"enter your email"}} type="email"/>
 
-                <Input register={register('passwords', { required: "enter your passwords please", minLength:{value: 3, message: " min 3 character"} })} errors={errors} label="passwords" placeholder={"enter your passwords please"} type="passwords"/>
+                <Input register={register('passwords', { required: "enter your passwords please", minLength:{value: 3, message: " min 3 character"} })} errors={errors} label="passwords" {...{placeholder:"enter your passwords"}} type="passwords"/>
 
             </form>
 
