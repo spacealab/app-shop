@@ -5,11 +5,12 @@ import React, { useContext, useEffect, useState } from "react";
 import Link from 'next/link';
 import { LoginModal } from "@/components/common/auth/LoginModal";
 import { RegisterModal } from "@/components/common/auth/RegisterModal";
+import { toast } from "react-toastify";
 import { useUser } from "@/store/AuthContext";
 
 export function Header() {
 
-  const {isLogin} = useUser();
+  const {isLogin , logout} = useUser();
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
 
@@ -23,6 +24,15 @@ export function Header() {
 
   const menuBodyClickHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
+  }
+
+  const accountHandler = () => {
+    if(isLogin) {
+      logout();
+      toast.success('OK')
+    } else {
+      openModal('login')
+    }
   }
   
 
@@ -53,7 +63,7 @@ export function Header() {
         </div>
 
         <ul className="hidden lg:flex gap-5">
-          <li className="flex gap-2 cursor-pointer" onClick={() => openModal('login')}>
+          <li className="flex gap-2 cursor-pointer" onClick={accountHandler}>
             <IconBox icon="icon-user" size={24} title={`${isLogin ? 'logout' : 'login/register'}`} link="#" hideTitleOnMobile={true} titleClassName="text-medium text-gray-500 font-lato" />
           </li>
           <li className="flex gap-2 cursor-pointer">
