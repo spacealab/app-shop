@@ -1,9 +1,9 @@
 export interface RegisterResponseType {
     jwt: string;
-    user: User;
+    user: UserType;
   }
   
-  export interface User {
+  export interface UserType {
     id: number;
     username: string;
     email: string;
