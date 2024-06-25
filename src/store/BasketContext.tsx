@@ -20,13 +20,15 @@ interface ProductItem {
     addItem: (product: EntityType<ProductType>) => void,
     increaseItem: (productId: number) => void,
     decreaseItem: (productId: number) => void,
-    deleteItem: (productId: number) => void
+    deleteItem: (productId: number) => void,
+    getItem: (productId: number) => undefined | ProductItem
   }>({
     basketItems: [],
     addItem: (product: EntityType<ProductType>): void => {},
     increaseItem: (productId: number): void => {},
     decreaseItem: (productId: number): void => {},
-    deleteItem: (productId: number): void => {}
+    deleteItem: (productId: number): void => {},
+    getItem: (productId: number) => undefined
   });
   
 
@@ -82,12 +84,17 @@ export const BasketContextProvider = (props: Props) => {
     const newBasket = basketItems.filter((item) => item.productId !== productId);
     setBasketItems(newBasket);
   }
+
+  const getItemHandler = (productId: number): ProductItem | undefined => {
+    return basketItems.find((item): boolean => item.productId == productId);
+  };  
   
 
   return (
     <BasketContext.Provider
       value={{
         basketItems: basketItems,
+        getItem: getItemHandler,
         addItem: addItemHandler,
         increaseItem: increaseItemHandler,
         decreaseItem: decreaseItemHandler,

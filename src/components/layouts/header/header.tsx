@@ -2,6 +2,7 @@ import { IconBox, Logo, Menu, Modal, SearchForm } from "@/components";
 import { ModalContext, useModal } from "@/store/ModalContext";
 import React, { useContext, useEffect, useState } from "react";
 
+import { BasketContext } from "@/store/BasketContext";
 import Link from 'next/link';
 import { LoginModal } from "@/components/common/auth/LoginModal";
 import { RegisterModal } from "@/components/common/auth/RegisterModal";
@@ -13,6 +14,7 @@ export function Header() {
   const {isLogin , logout} = useUser();
 
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+  const basket = useContext(BasketContext);
 
   const {currentModal, openModal, closeModal} = useModal()
 
@@ -67,7 +69,7 @@ export function Header() {
             <IconBox icon="icon-user" size={24} title={`${isLogin ? 'logout' : 'login/register'}`} link="#" hideTitleOnMobile={true} titleClassName="text-medium text-gray-500 font-lato" />
           </li>
           <li className="flex gap-2 cursor-pointer">
-            <IconBox icon="icon-shopping-cart" size={24} title={"Card"} link="#" hideTitleOnMobile={true} badge={4} titleClassName="text-medium text-gray-500 font-lato" />
+            <IconBox icon="icon-shopping-cart" size={24} title={"Card"} link="#" hideTitleOnMobile={true} badge={basket.basketItems.length} titleClassName="text-medium text-gray-500 font-lato" />
           </li>
         </ul>
         <button onClick={menuBtnClickHandler} id="menu_btn" className="flex flex-col justify-between py-[4px] lg:hidden w-[24px] h-[24px]">

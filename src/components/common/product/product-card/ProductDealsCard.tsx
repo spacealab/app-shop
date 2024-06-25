@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { EntityType } from "@/types";
 import { ImageView } from "../../image_view";
+import { ProductCardBottom } from "./ProductCardBottom";
 import { ProductType } from "@/types/api/Product";
 import { Rating } from "../../ui";
 import { timerHelper } from "@/utils/timer";
@@ -90,16 +91,7 @@ export function ProductDealsCard({data}: Props) {
                         <span className="text-heading5 text-green-200">${data.attributes.price}</span>
 
                     }
-                <div className="add-product">
-                    <button className="flex items-center justify-center text-heading-sm text-green-200 border-[1px] rounded-[4px] bg-green-150 px-[10px] py-[5px]">Adds +</button>
-                    <div className="input-product__container hidden border-[1px] rounded-[4px] border-green-300 text-green-300 h-[30px] p-[3px]">
-                    <input type="number" value="1" className="input-product h-[24px] w-[50px] border-0 focus:outline-none text-center" />
-                    <div className="flex flex-col justify-between">
-                        <i className="up icon-angle-small-up text-[10px]"></i>
-                        <i className="down icon-angle-small-down text-[10px]"></i>
-                    </div>
-                    </div>
-                </div>
+                    <ProductCardBottom productData={data}/>
                 </div>
             </div>
             </div>
