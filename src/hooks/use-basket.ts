@@ -1,4 +1,4 @@
-import {UpdateBasketData, basketApiCall, updateBasketApiCall} from "@/api/Basket";
+import {UUID2UserApiCall, UpdateBasketData, basketApiCall, updateBasketApiCall} from "@/api/Basket";
 import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
 
 import { BasketItemType } from "@/types/api/Basket";
@@ -9,6 +9,15 @@ export function useBasket(){
     const {data: basketData} = useQuery({queryKey: ['get-basket'], queryFn: basketApiCall});
     
     const mutate = useMutation({mutationFn: updateBasketApiCall});
+
+    const mutateUUID2User = useMutation({
+        mutationFn: UUID2UserApiCall,
+        onSuccess: (response): void => {
+            console.log('response', response);
+            window.localStorage.removeItem('uuid');
+            queryClient.invalidateQueries({ queryKey: ['get-basket'] });
+        }
+    });  
 
     const basketItems = basketData?.data.attributes.basket_items ?? [];
 
@@ -77,7 +86,27 @@ export function useBasket(){
 
     const getItemHandler = (productId: number) : BasketItemType | undefined => {
         return basketItems.find((item): boolean => item.product.data.id === productId);
-    };    
+    };
 
-    return {basketItems: basketItems, addItem: addItemHandler, updateItem: updateItemHandler, getItem : getItemHandler}
+    const uuid2userHandler = (): void => {
+        const token = window.localStorage.getItem('token');
+        const uuid = window.localStorage.getItem('uuid');
+    
+        if (token && uuid) {
+            if(basketItems.length > 0) {
+                mutateUUID2User.mutate(uuid, {
+                    onSuccess: (response): void => {
+                        console.log('response', response);
+                        window.localStorage.removeItem('uuid');
+
+                    }
+                });
+            } else {
+                window.localStorage.removeItem('uuid');
+                queryClient.invalidateQueries({ queryKey: ['get-basket'] });
+            }
+        }
+    };
+    
+    return {basketItems: basketItems, addItem: addItemHandler, updateItem: updateItemHandler, getItem : getItemHandler, uuid2userHandler: uuid2userHandler} 
 }

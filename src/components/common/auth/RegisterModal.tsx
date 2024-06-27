@@ -2,6 +2,7 @@ import { Input } from "../ui/form/input";
 import { Modal } from "@/components";
 import { registerApiCall } from "@/api/Auth";
 import { toast } from "react-toastify";
+import { useBasket } from "@/hooks/use-basket";
 import { useForm } from "react-hook-form";
 import { useModal } from "@/store/ModalContext";
 import { useMutation } from "@tanstack/react-query";
@@ -20,6 +21,8 @@ export function RegisterModal({ onClose }: Props) {
 
     const { closeModal } = useModal()
 
+    const {uuid2user} = useBasket()
+
     const {login} = useUser();
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
@@ -31,6 +34,7 @@ export function RegisterModal({ onClose }: Props) {
                 login(response.jwt, response.user)
                 toast.success("welcome");
                 closeModal();
+                uuid2user()
             }})
         }  
 

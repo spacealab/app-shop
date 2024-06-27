@@ -8,9 +8,12 @@ import { LoginModal } from "@/components/common/auth/LoginModal";
 import { RegisterModal } from "@/components/common/auth/RegisterModal";
 import { toast } from "react-toastify";
 import { useBasket } from "@/hooks/use-basket";
+import { useQueryClient } from "@tanstack/react-query";
 import { useUser } from "@/store/AuthContext";
 
 export function Header() {
+
+  const queryClient = useQueryClient();
 
   const {basketItems} = useBasket();
 
@@ -35,6 +38,8 @@ export function Header() {
   const accountHandler = () => {
     if(isLogin) {
       logout();
+      queryClient.invalidateQueries({ queryKey: ['get-basket'] });
+
       toast.success('OK')
     } else {
       openModal('login')
